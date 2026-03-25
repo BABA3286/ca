@@ -6,12 +6,10 @@ void bubble_sort(int arr[], int n)
 {
 	for (int i = 0; i < n - 1; ++i)
 	{
-// Last i elements are already sorted
 		for (int j = 0; j < n - i - 1; ++j)
 		{
 			if (arr[j] > arr[j + 1])
 			{
-// Swap arr[j] and arr[j+1]
 				int temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
@@ -31,7 +29,6 @@ int main()
 	printf("\n The array elements are:\n");
 	for(int i=0; i<ARRAY_SIZE; i++)
 		printf("%d  ",arr[i]);
-// Sort the array using bubble sort in parallel
 	#pragma omp parallel shared(arr)
 	{
 		bubble_sort(arr, ARRAY_SIZE);
@@ -58,12 +55,10 @@ void bubble_sort(int arr[], int n)
 	#pragma omp critical
 	for (int i = 0; i < n - 1; ++i)
 	{
-// Last i elements are already sorted
 		for (int j = 0; j < n - i - 1; ++j)
 		{
 			if (arr[j] > arr[j + 1])
 			{
-				// Swap arr[j] and arr[j+1]
 				int temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
@@ -83,7 +78,6 @@ int main()
 	printf("\n The array elements are:\n");
 	for(int i=0; i<ARRAY_SIZE; i++)
 		printf("%d  ",arr[i]);
-// Sort the array using bubble sort in parallel
 	#pragma omp parallel shared(arr)
 	{
 		bubble_sort(arr, ARRAY_SIZE);
